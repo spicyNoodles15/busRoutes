@@ -34,3 +34,10 @@ optional discounts are handled within.
 **Linux:** Debian 10 in VirtualBox. GCC Compiler
 
 **Windows:** VS Code w/ MinGW GCC compiler
+
+****
+
+### Usage Notes
+
+- **Employee Master Pass = 0**
+  - Use this pass ID when prompted to ride any transportation method for free. 

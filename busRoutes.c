@@ -102,8 +102,9 @@ void menuNav(int menuID)
 			passList[k].ID = k;
 			passList[k].Discount = 0;
 		} 
-		//Give employee pass(0) appropriate discount 
+		//Give employee pass[0] appropriate discount and type
 		passList[0].Discount = EMPLOYEEDISCOUNT;
+		passList[0].Type = EMPLOYEEPASS;
 		
 		state = MAINMENU;	
 		break;

@@ -27,3 +27,10 @@ optional discounts are handled within.
 [ ] Monthly pass expiration tracking
 
 [ ] Add variable cost based on length of trip
+
+****
+### Environments 
+
+**Linux:** Debian 10 in VirtualBox. GCC Compiler
+
+**Windows:** VS Code w/ MinGW GCC compiler

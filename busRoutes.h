@@ -12,6 +12,7 @@
 **********Macro Definitions*************
 ***************************************/
 #define MAXPASS 50 		//maximum number of passes available
+#define TRANSITAUTHORITY	"Charlotte Transit"
 #define STUDENTDISCOUNT .50 	//percent
 #define ELDERLYDISCOUNT .50 	//percent
 #define EMPLOYEEDISCOUNT  1.0	//percent

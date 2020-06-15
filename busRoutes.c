@@ -13,23 +13,23 @@
 ****************************************************************/
 
 /**************************************
-****************Includes***************
+***************Includes****************
 ***************************************/
 #include "busRoutes.h"
 
 /**************************************
-**********Global Variables*************
+***********Global Variables************
 ***************************************/
 int highestID = 0;
 struct pass passList[MAXPASS] = {};
-char a;			//default char for menus
-int currPass;		//current pass ID
-int lastPass; 		//most recently created new pass
-float currPrice; 	//current price
-int id;			//customer ID # input
-float p;		//Price input from customer
+char a;					//default char for menus
+int currPass;			//current pass ID
+int lastPass; 			//most recently created new pass
+float currPrice; 		//current price
+int id;					//customer ID # input
+float p;				//Price input from customer
 char errMsg[50] = "";	//simple error message string
-char prevInput;		//stores previous user input
+char prevInput;			//stores previous user input
 time_t current_time;    //Current raw time
 struct tm *currTime;    //Current formatted time
 
@@ -110,7 +110,7 @@ void menuNav(int menuID)
 	case MAINMENU:
 		//Display Main Menu text
   		printf("*****************************\n");
-  		printf("Welcome to Charlotte Transit!\n\n");
+  		printf("Welcome to %s\n\n", TRANSITAUTHORITY);
 		printf("Services:\n");
 		printf("Bus: Monthly: $%.2f, Pay-Per-Use: $%.2f\n",priceTable[0][0],priceTable[1][0]);
 		printf("Subway: Monthly: $%.2f, Pay-Per-Use: $%.2f\n",priceTable[0][1],priceTable[1][1]);
@@ -135,26 +135,26 @@ void menuNav(int menuID)
   		switch (str[0])
   		{
   			case 'p':
-			state = DISCOUNTMENU;
-			currPass = lastPass; //Assign new pass #
+				state = DISCOUNTMENU;
+				currPass = lastPass; //Assign new pass #
 			break;
 			case 'u':
-			state = ENTERIDMENU;
-			prevInput = 'u';		
+				state = ENTERIDMENU;
+				prevInput = 'u';		
 			break;
 			case 'b':
-			state = ENTERIDMENU;
-			prevInput = 'b';
+				state = ENTERIDMENU;
+				prevInput = 'b';
 			break;
 			case 'a':
-			state = ENTERIDMENU;
-			prevInput = 'a';
+				state = ENTERIDMENU;
+				prevInput = 'a';
 			break;
 			default:
-			strcpy(errMsg,"Invalid Selection!");
-			errorMsg(errMsg);
-			state = MAINMENU;
-			break;			
+				strcpy(errMsg,"Invalid Selection!");
+				errorMsg(errMsg);
+				state = MAINMENU;
+				break;			
   		}
 		break;
 	case DISCOUNTMENU:
@@ -174,24 +174,24 @@ void menuNav(int menuID)
   		switch (str[0])
   		{
   			case 'e':
-			passList[currPass].Discount = ELDERLYDISCOUNT;	
-			state = PASSTYPEMENU;	
+				passList[currPass].Discount = ELDERLYDISCOUNT;	
+				state = PASSTYPEMENU;	
 			break;
 			case 's':
-			passList[currPass].Discount = STUDENTDISCOUNT;
-			state = PASSTYPEMENU;
+				passList[currPass].Discount = STUDENTDISCOUNT;
+				state = PASSTYPEMENU;
 			break;
 			case 'n':
-			passList[currPass].Discount = 0;
-			state = PASSTYPEMENU;
+				passList[currPass].Discount = 0;
+				state = PASSTYPEMENU;
 			break;
 			case 'x':
-			state = MAINMENU;
+				state = MAINMENU;
 			break;
 			default:
-			strcpy(errMsg,"Invalid Selection!");
-			errorMsg(errMsg);
-			state = DISCOUNTMENU;
+				strcpy(errMsg,"Invalid Selection!");
+				errorMsg(errMsg);
+				state = DISCOUNTMENU;
 			break;
   		}
 		break;
@@ -211,22 +211,22 @@ void menuNav(int menuID)
   		switch (str[0])
   		{
   			case 'm':
-			//change pass type to monthly
-			passList[currPass].Type = MONTHLY;
-			state = TRANSPORTMENU;
+				//change pass type to monthly
+				passList[currPass].Type = MONTHLY;
+				state = TRANSPORTMENU;
 			break;
 			case 'p':
-			//change pass type to pay per ride
-			passList[currPass].Type = PAYPERUSE;
-			state = TRANSPORTMENU;
+				//change pass type to pay per ride
+				passList[currPass].Type = PAYPERUSE;
+				state = TRANSPORTMENU;
 			break;
 			case 'x':
-			state = MAINMENU;
+				state = MAINMENU;
 			break;
 			default:
-			strcpy(errMsg,"Invalid Selection!");
-			errorMsg(errMsg);
-			state = PASSTYPEMENU;
+				strcpy(errMsg,"Invalid Selection!");
+				errorMsg(errMsg);
+				state = PASSTYPEMENU;
 			break;
   		}
 		break;
@@ -248,28 +248,28 @@ void menuNav(int menuID)
   		switch (str[0])
   		{
   			case 'b':
-			passList[currPass].transType = BUS;
-			state = PURCHASE;
+				passList[currPass].transType = BUS;
+				state = PURCHASE;
 			break;
 			case 's':
-			passList[currPass].transType = SUBWAY;
-			state = PURCHASE;
+				passList[currPass].transType = SUBWAY;
+				state = PURCHASE;
 			break;
 			case 'r':
-			passList[currPass].transType = RAIL;
-			state = PURCHASE;
+				passList[currPass].transType = RAIL;
+				state = PURCHASE;
 			break;
 			case 'e':
-			passList[currPass].transType = ELDERLYBUS;
-			state = PURCHASE;
+				passList[currPass].transType = ELDERLYBUS;
+				state = PURCHASE;
 			break;
 			case 'x':
-			state = MAINMENU;
+				state = MAINMENU;
 			break;
 			default:
-			strcpy(errMsg,"Invalid Selection!");
-			errorMsg(errMsg);
-			state = TRANSPORTMENU;
+				strcpy(errMsg,"Invalid Selection!");
+				errorMsg(errMsg);
+				state = TRANSPORTMENU;
 			break;
   		}
 
@@ -310,17 +310,17 @@ void menuNav(int menuID)
   		switch (prevInput)
   		{
 			case 'u':
-			state = USEPASS;
+				state = USEPASS;
 			break;
 			case 'b':
-			state = BALANCEMENU;
+				state = BALANCEMENU;
 			break;
 			case 'a':
-			state = ADDMONEY;
+				state = ADDMONEY;
 			break;
 			default:
-			strcpy(errMsg,"Invalid Selection!");
-			errorMsg(errMsg);
+				strcpy(errMsg,"Invalid Selection!");
+				errorMsg(errMsg);
 			break;
   		}
 		break;
@@ -342,24 +342,24 @@ void menuNav(int menuID)
   		switch (str[0])
   		{
   			case 'b':
-			transTypeSelection = BUS;
+				transTypeSelection = BUS;
 			break;
 			case 's':
-			transTypeSelection = SUBWAY;
+				transTypeSelection = SUBWAY;
 			break;
 			case 'r':
-			transTypeSelection = RAIL;
+				transTypeSelection = RAIL;
 			break;
 			case 'e':
-			transTypeSelection = ELDERLYBUS;
+				transTypeSelection = ELDERLYBUS;
 			break;
 			case 'x':
-			state = MAINMENU;
+				state = MAINMENU;
 			break;
 			default:
-			strcpy(errMsg,"Invalid Selection!");
-			errorMsg(errMsg);
-			state = TRANSPORTMENU;
+				strcpy(errMsg,"Invalid Selection!");
+				errorMsg(errMsg);
+				state = TRANSPORTMENU;
 			break;
   		}
 		
@@ -535,7 +535,7 @@ void useSuccess(int currPass){
 
 	printf("*****************************\n");
 	printf("%s Used on %s\n\n", typeList[passList[currPass].Type], transList[passList[currPass].transType]);
-	printf("Thanks for using Charlotte Transit!\n\n");
+	printf("Thanks for using %s!\n\n", TRANSITAUTHORITY);
 	printf("*****************************\n");
 	//Print pass summary
 	printPass(currPass);

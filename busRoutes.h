@@ -8,6 +8,12 @@
 #include <string.h>
 #include <time.h>
 
+#ifdef _WIN32
+#define clrscr() system("cls")
+#else
+#define clrscr() system("clear")
+#endif
+
 /**************************************
 **********Macro Definitions*************
 ***************************************/

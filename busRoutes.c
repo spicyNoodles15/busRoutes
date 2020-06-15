@@ -82,7 +82,7 @@ void menuNav(int menuID)
   currTime = localtime( &current_time );
 
   //clear screen for ease of use
-  system("clear");
+  clrscr();
 
   //Process menu tasks and navigate to next menu
   switch (menuID)
@@ -117,9 +117,9 @@ void menuNav(int menuID)
 		printf("Rail: Monthly: $%.2f, Pay-Per-Use: $%.2f\n",priceTable[0][2],priceTable[1][2]);
 		printf("Elderly Bus: Monthly: $%.2f, Pay-Per-Use: $%.2f\n",priceTable[0][3],priceTable[1][3]);
 		printf("\nDiscounts Available:\n");
-		printf("Elderly: %.0f%, Students: %.0f%\n",ELDERLYDISCOUNT*100, STUDENTDISCOUNT*100);
-		printf("PAY-PER-USE Passes %.0f% Off on Weekends!\n", WEEKENDDISCOUNT*100); 
-		printf("MONTHLY Passes %.0f% Off after the 15th of the Month!\n", PRORATEMONTH*100); 
+		printf("Elderly: %.0f%c, Students: %.0f%c\n",ELDERLYDISCOUNT*100,'%', STUDENTDISCOUNT*100,'%');
+		printf("PAY-PER-USE Passes %.0f%c Off on Weekends!\n", WEEKENDDISCOUNT*100,'%'); 
+		printf("MONTHLY Passes %.0f%c Off after the 15th of the Month!\n", PRORATEMONTH*100, '%'); 
 		printf("*****************************\n\n");
   		printf("Please select from the following options:\n");
   		printf("Purchase Pass (p)\n");
@@ -430,7 +430,7 @@ void menuNav(int menuID)
 			
 			//Display Purchase Success Menu Text
 			//clear screen for ease of use
-  			system("clear");
+  			clrscr();
 			printf("*****************************\n");
   			printf("Purchase Successful!\n\n");
 			printf("Purchase Price: $%.2f, Change: $%.2f\n\n", currPrice, change);
@@ -496,7 +496,7 @@ void printPass(int currPass)
 	printf("*****************************\n");
 	puts(buffer);
 	printf("\nPass ID: %d\n",passList[currPass].ID);
-	printf("Discount: %.0f%\n", passList[currPass].Discount*100);
+	printf("Discount: %.0f%c\n", passList[currPass].Discount*100,'%');
 	printf("Type: %s\n", typeList[passList[currPass].Type]);
 	printf("Transportation Type: %s\n", transList[passList[currPass].transType]);
 	printf("Balance: $%.2f (Monthly passes have $0)\n\n", passList[currPass].Balance);
@@ -514,7 +514,7 @@ void printPass(int currPass)
 void errorMsg(char message[])
 {
 	//clear screen for ease of use
-  	system("clear");
+  	clrscr();
 
 	printf("*****************************\n\n");
 	printf("%s\n\n",message);
@@ -531,7 +531,7 @@ void errorMsg(char message[])
 **************************************/
 void useSuccess(int currPass){
 	//clear screen for ease of use
-  	system("clear");
+  	clrscr();
 
 	printf("*****************************\n");
 	printf("%s Used on %s\n\n", typeList[passList[currPass].Type], transList[passList[currPass].transType]);

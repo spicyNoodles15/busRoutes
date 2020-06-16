@@ -28,6 +28,8 @@ optional discounts are handled within.
 
 [ ] Add variable cost based on length of trip
 
+[ ] Create Dockerfile
+
 ****
 ### Environments 
 
@@ -36,6 +38,8 @@ optional discounts are handled within.
 **Windows:** VS Code w/ MinGW GCC compiler
 
 ****
+
+**View Latest Release:** https://github.com/spicyNoodles15/busRoutes/releases
 
 ### Usage Notes
 

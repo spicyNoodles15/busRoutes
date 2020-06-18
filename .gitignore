@@ -1,3 +1,6 @@
 Release.md
 bin/linux/busRoutesv1.0.0_linux
 bin/windows/busRoutesv1.0.0_win.exe
+.vscode/c_cpp_properties.json
+.vscode/launch.json
+bin/windows/busRoutes.exe
